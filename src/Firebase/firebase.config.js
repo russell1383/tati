@@ -1,6 +1,6 @@
 const firebaseConfig = {
   apiKey: "AIzaSyBRncg8LwtcKbPF2eSNLRD_fyY2pI6_psY",
-  authDomain: "tat-ecommece.firebaseapp.com",
+  authDomain: "tatiartant.com",
   projectId: "tat-ecommece",
   storageBucket: "tat-ecommece.appspot.com",
   messagingSenderId: "825560372378",

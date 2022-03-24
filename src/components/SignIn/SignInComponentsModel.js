@@ -19,6 +19,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import GoogleIcon from '@mui/icons-material/Google';
 import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
 import LoginModal from "./LoginModal";
+import { FacebookLoginButton,GoogleLoginButton ,TelegramLoginButton} from "react-social-login-buttons";
 
 
 const style = {
@@ -155,37 +156,43 @@ const SignInComponentsModel = ({ openBooking, handleBookingClose }) => {
       <div className="p-2 ">
         <h2 className="mb-3 text-center text-white fw-900">Login</h2>
         {/* {error && <Alert variant="danger">{error}</Alert>} */}
-        <Form >
-        </Form>
+                        <Form >
+                          
+      
+                        </Form>
         <hr />
-        {/* <div>
-          <GoogleButton
-            className="g-btn"
-            type="dark"
-            onClick={handleGoogleSignIn}
-          />
-
-          </div> */}
-          <div className="d-grid gap-2 mt-3">       
+          {/* <div className="d-grid gap-2 mt-3">       
           <Button        
             onClick={handleGoogleSignIn} variant="primary"  type="Submit">
              <span className="me-4"><GoogleIcon  sx={{ fontSize: 30 }}/></span> 
             <span className="start">Sign in with google</span> 
             </Button>
-          </div>
-            <div className="d-grid gap-2 mt-3">
+          </div> */}
+            {/* <div className="d-grid gap-2 mt-3">
             <Button onClick={handleFaceBookSignIn} variant="success"  type="Submit">
              <span className="me-3">< FacebookIcon sx={{ fontSize: 30 }}/></span> Sign in with facebook
             </Button>
-          </div>
+            </div> */}
                
-            <div className="d-grid gap-2 mt-3">
+            {/* <div className="d-grid gap-2 mt-3">
             <Button onClick={handleOpen} variant="success" type="Submit">
              <span className="me-4"><PhoneAndroidIcon  sx={{ fontSize: 30 }}/></span> Sign in with phone
             </Button>
-            </div>
+          </div> */}
+                        {/* login button start */}
+
+                        <div className="d-grid gap-2 mt-3">      
+                     <div className="">
+                           <GoogleLoginButton className="mb-3" onClick={handleGoogleSignIn} />
+                            <FacebookLoginButton className="mb-3" onClick={handleFaceBookSignIn} />
+                            <TelegramLoginButton onClick={handleOpen}>
+                               <span>Log in with Phone</span>
+                            </TelegramLoginButton>
+                      </div>        
+                  </div>
+                        {/* login button end  */}
         </div>
-      <div className="p-1 mt-2 text-center ">
+    <div className="p-1 mt-2 text-center ">
          <p className="text-primary ">
           New to TatiarTant?
           <span className="text-success"
@@ -193,7 +200,6 @@ const SignInComponentsModel = ({ openBooking, handleBookingClose }) => {
           Create account</span>
         </p>
       </div>
-              {/* End login button */}
               
             </>
           )}

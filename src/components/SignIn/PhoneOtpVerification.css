@@ -26,10 +26,14 @@ a {
 }
 .button-right{
     display: flex;
-    justify-content: flex-end;
+    justify-content:center;
 }
 #recaptcha-container{
-    margin: 30px;
+    /* margin: 13px 0px;  */
+    margin-top: 15px;
+    align-items: center;
+    padding: auto;
+
 }
 .g-btn{
     width: 80% !important;
@@ -41,4 +45,20 @@ a {
 .g-btn > div > svg {
   width: 40px !important;
   height: 38px !important;
+}
+.otpButton{
+  width: 50%;
+  padding: 4px;
+  margin-top: 2px;
+}
+ .numInputs{
+    margin-top: 2px;
+}
+
+.loginComponent{
+  height: 80vh;
+  width: 80vh;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
 }

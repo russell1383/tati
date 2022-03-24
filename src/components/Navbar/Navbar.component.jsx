@@ -144,16 +144,8 @@ const Navbar = () => {
                   />
 
                   </Tooltip>
-                  
             }
             </span>
-
-              {/* <Button variant="primary">
-                <span> <FontAwesomeIcon
-                icon={faUser}
-                onClick={() => history.push("/account")}
-              /></span>
-              </Button> */}
             </NavbarIconsContainer>
 
             <NavItemsContainer>

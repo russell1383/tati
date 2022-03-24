@@ -65,6 +65,8 @@ export const MenubarSocilMediaIcons = styled.div`
   background: ${({ theme }) => theme.colors.primary};
   z-index: 2;
   width: 100%;
+  // margin-top:7px;
+  // margin-right:10px;
   height: 50px;
   border-top: 1px solid rgba(255, 255, 255, 0.25);
   display: flex;

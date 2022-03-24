@@ -10,16 +10,17 @@ import "./PhoneOtpVerification.css";
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import { async } from '@firebase/util';
+import OtpInput from 'react-otp-input';
 const style = {
   position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 430,
+  width: 400,
   bgcolor: 'background.paper',
 //    bgcolor: 'info.main',
   border: '1px solid #000',
-  boxShadow: 20,
+  boxShadow: 24,
   p: 4,
   
 };
@@ -92,14 +93,15 @@ const PhoneOtpVerificationModel = ({handleClose,open,handleBookingClose}) => {
         <Fade in={open}>
     <Box sx={style}>
         <div className='p-4'>
-                <h4 className ='mb-2 text-center'>Number Verification</h4>
                 {error && <Alert variant='danger'>{error}</Alert>}
                         
-                 <div style={{ display: !show ? "block" : "none" }} className="mt-3">
+                <div style={{ display: !show ? "block" : "none" }} className="mt-3">
+                <h4 className ='mb-4 text-center'>Number Verification</h4>
                     <Form onSubmit={getOtp}>
                     <Form.Group className="mb-3 m-2" controlId="formBasicPhoneNumber">
                         <PhoneInput
                             defaultCountry='BD'
+                            // country="BD"
                             value={number}
                             onChange={setNumber}
                             placeholder="Enter phone number"
@@ -111,27 +113,50 @@ const PhoneOtpVerificationModel = ({handleClose,open,handleBookingClose}) => {
                              <Button variant='secondary' onClick={handleClose}>Cancel</Button> &nbsp;
                         </Link>
                        
-                        <Button variant='success' type='submit'>Send OTP</Button>
+                        <Button variant='success' type='submit'>Send Code</Button>
 
                     </div>
                     </Form>
                 </div>
-                <div className='' style={{ display: show ? "block" : "none" }}>
-                  <Form onSubmit={verifyOtp}>
-                    <Form.Group className="mb-3" controlId="formBasicOtp">
-                        <Form.Control
-                            type="otp"
+            <div className='' style={{ display: show ? "block" : "none" }}>
+                <Form  onSubmit={verifyOtp}>
+                    {/* <Form.Group className="mb-3" controlId="formBasicOtp">
+                        {/* <Form.Control
+                             type="otp"
                              placeholder="Enter Otp"
                              onChange={(e) => { setOtp(e.target.value) }}
                             >
-                        </Form.Control>  
-                    </Form.Group>
-                    <div className='button-right'>
-                        <Button variant='primary' type='submit'>Verify OTP </Button>
-                    </div>
+                        </Form.Control>   */}
+                                        
+                                        {/* react otp  */}
+
+                                    {/* <OtpInput
+                                    //    value={otp}
+                                        onChange={(e) => { setOtp(e.target.value) }}
+                                        numInputs={6}
+                                        separator={<span>-</span>}
+                                    /> */}
+                                {/* </Form.Group> */} 
+                                <div className=''>
+                                    <h5 className ='mb-2 text-center'>Enter Verification Code</h5>
+                                    <p className='mb-2 text-center'> SEND OTP : <span className='d-flux justify-content-center align-items-center'>****</span>{number.slice(10)}</p>
+                                   
+                                     <OtpInput
+                                        value={otp}
+                                        className="mt-2 otpButton"
+                                        // onChange={(e) => { setOtp(e.target.value) }}
+                                        onChange={setOtp}
+                                        numInputs={6}
+                                        // separator={<span></span>}
+                                       
+                                    />
+                                </div>
+                    <div className='button-right my-3'>
+                        <Button variant='primary' type='submit'>Verify Code</Button>
+                                </div>
                     </Form>
-                  </div>  
-                </div>
+                </div>  
+        </div>
                         
         </Box>
         </Fade>

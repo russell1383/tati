@@ -30,6 +30,11 @@ import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import LoginDashBoard from "./LoginDashBoard";
 import SignInComponentsModel from "../SignIn/SignInComponentsModel";
+import PersonIcon from '@mui/icons-material/Person';
+import Tooltip from '@mui/material/Tooltip';
+import Zoom from '@mui/material/Zoom';
+import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';
 
 // const Navbar = () => {
 //   // const { user, products } = useContext(UserContext);
@@ -107,15 +112,19 @@ const Navbar = () => {
                 onClick={() => history.push("/account")}
                 alt=""
               /> */}
-              <FontAwesomeIcon
-                icon={faSearch}
+              <Tooltip title="Search" placement="top" arrow>
+              <SearchOutlinedIcon
+                sx={{ fontSize: 32 }}
                 onClick={() => setSearchBarOpen(true)}
-              />
-              <span>
-                <FontAwesomeIcon
-                  icon={faShoppingBag}
-                  onClick={() => setCartSidebarState(true)}
                 />
+                </Tooltip>
+              <span>
+                <Tooltip  title="AddToCart" placement="top" arrow>
+                <AddShoppingCartOutlinedIcon
+                  sx={{ fontSize: 32 }}
+                  onClick={() => setCartSidebarState(true)}
+                  />
+                  </Tooltip>
                 {cartProducts.length ? (
                   <div className="">{cartProducts.length} </div>
                 ) : null}
@@ -126,8 +135,16 @@ const Navbar = () => {
                   <Button onClick={handleClick} variant="outline-secondary">{loggedInUser.displayName.slice(0,6)}</Button>
                 :
                
-                  <Button variant="outline-secondary" onClick={handleBookingOpen}>Login</Button>
+                  // <Button variant="outline-secondary" onClick={handleBookingOpen}>Login</Button>
                   // <Button variant="outline-secondary" MouseOver={handleBookingOpen}>Login</Button>
+                  <Tooltip title="MyAccount" TransitionComponent={Zoom} placement="top" arrow> 
+                    <PersonIcon
+                    sx={{ fontSize: 32 }}
+                    onClick={handleBookingOpen}
+                  />
+
+                  </Tooltip>
+                  
             }
             </span>
 

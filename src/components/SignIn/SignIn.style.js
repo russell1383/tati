@@ -19,7 +19,7 @@ export const SignInFormContainer = styled.div`
   h1 {
     text-align: center;
     font-size: 24px;
-    font-weight: 400;
+    font-weight: 600;
   }
   p {
     text-align: center;

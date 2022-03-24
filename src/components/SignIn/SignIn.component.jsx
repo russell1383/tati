@@ -14,6 +14,7 @@ import PhoneOtpVerificationModel from "./PhoneOtpVerificationModel";
 import FacebookIcon from '@mui/icons-material/Facebook';
 import GoogleIcon from '@mui/icons-material/Google';
 import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
+import { FacebookLoginButton,GoogleLoginButton ,TelegramLoginButton} from "react-social-login-buttons";
 
 const SignInContent = () => {
   // const { register, handleSubmit } = useForm();
@@ -27,7 +28,7 @@ const SignInContent = () => {
   const [loggedInUser, setLoggedInUser] = user;
   const [error, setError] = useState(null);
   const [showForgetPass, setShowForgetPass] = useState(false);
-
+  
   // const onSubmit = (data, e) => {
   //   console.log(data);
   //   if (data.phone.length >= 11 && data.password.length >= 4) {
@@ -105,88 +106,34 @@ const SignInContent = () => {
 
   return (
     <>
-      <SignInContainer>
+       <SignInContainer>
         <SignInFormContainer>
           {!showForgetPass && (
             <>
-              {/* <h1 className="">Login</h1> */}
-              {/* <br />
-              <p>Please enter your email and password:</p> */}
-              {/* <form onSubmit={handleSubmit(onSubmit)}> */}
-              {/* <form >
-                <div className="input__wrap">
-                  <label htmlFor="phone">Phone</label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    {...register("phone")}
-                    required
-                  />
-                </div>
-
-                <div className="input__wrap">
-                  <label htmlFor="password">Password</label>
-                  <input
-                    type="password"
-                    id="password"
-                    {...register("password")}
-                    required
-                  />
-                  <span onClick={() => handleForgotPassword()}>
-                    Forget password ?
-                  </span>
-                </div>
-                <small>{error ? error : null}</small>
-                <button type="submit">
-                  <PrimaryButton>Login</PrimaryButton>
-                </button>
-              </form> */}
-              {/* <p>
-                Don't have an account ?
-                <span onClick={() => history.push("/sign-up")}>
-                  {" "}
-                  Create one
-                </span>
-              </p> */}
-             
-              {/* start login button  */}
-      <div className="p-3 box">
-        <h2 className="mb-3 text-center">Login</h2>
-        {error && <Alert variant="danger">{error}</Alert>}
-        <Form >
-        </Form>
-        <hr />
-        <div className="d-grid gap-2 mt-3">       
-          <Button        
-            onClick={handleGoogleSignIn} variant="primary"  type="Submit">
-             <span className="me-4"><GoogleIcon  sx={{ fontSize: 30 }}/></span> 
-            <span className="start">Sign in with google</span> 
-            </Button>
-          </div>
-            <div className="d-grid gap-2 mt-3">
-            <Button onClick={handleFaceBookSignIn} variant="success"  type="Submit">
-             <span className="me-3">< FacebookIcon sx={{ fontSize: 30 }}/></span> Sign in with facebook
-            </Button>
-          </div>
-               
-            <div className="d-grid gap-2 mt-3">
-            <Button onClick={handleOpen} variant="success" type="Submit">
-             <span className="me-4"><PhoneAndroidIcon  sx={{ fontSize: 30 }}/></span> Sign in with phone
-            </Button>
-            </div>
-      </div>
-      <div className="p-3 box mt-3 text-center">
-       <p>
-               New to TatiarTant?
-          <span onClick={() => history.push("/sign-up")}>
-                  {" "}
-                 Create an account
-                </span>
-              </p>
-      </div>
-              {/* End login button */}
               
-            </>
+              {/* start login button  */}
+      <div className="px-4 py-4 shadow-lg p-3 mb-5 bg-body rounded mt-3" >
+                <h2 className="mb-2 text-center text-black fw-900">Login</h2>
+                 <hr />
+                <div className="d-grid mt-3">      
+                     <div className="">
+                           <GoogleLoginButton className="mb-3" onClick={handleGoogleSignIn} />
+                            <FacebookLoginButton className="mb-3" onClick={handleFaceBookSignIn} />
+                    <TelegramLoginButton onClick={handleOpen}>
+                      <span>Log in with Phone</span>
+                    </TelegramLoginButton>
+                      </div>        
+                  </div>
+      </div>
+      <div className="text-center mb-3">
+         <p className="text-black">
+          New to TatiarTant?
+          <span className="text-primary"
+          onClick={() => history.push("/sign-up")}>
+          Create account</span>
+        </p>
+      </div>
+    </>
           )}
 
           {showForgetPass && (
@@ -194,12 +141,16 @@ const SignInContent = () => {
           )}
         </SignInFormContainer>
       </SignInContainer>
+
       <PhoneOtpVerificationModel
         handleOpen={handleOpen}
         open={open}
         handleClose={handleClose}
+        // handleBookingClose={handleBookingClose}
       >
       </PhoneOtpVerificationModel>
+     
+     
     </>
   
   );

@@ -50,7 +50,7 @@ export const NavBarContainer = styled.div`
 `;
 
 export const NavbarIconsContainer = styled.div`
-  font-size: 22px;
+  font-size: px;
   @media (max-width: 768px) {
     display: flex;
     align-items: center;
@@ -103,7 +103,7 @@ export const NavItemsContainer = styled.div`
   margin: 0 auto;
   left: 0;
   right: 0;
-  top: 10%;
+  top: 18%;
   margin: auto;
   width: 380px;
   display: flex;

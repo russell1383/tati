@@ -72,10 +72,10 @@ const ShopCategories = ({ shopCategoriesState }) => {
         </ShopCategoriesContent>
 
         <ShopCatImgContainer>
-          <img src={img1} alt="" />
-          <div>
-            <img src={img2} alt="" />
-            <img src={img3} alt="" />
+          <img className="rounded" src={img1} alt="" />
+          <div >
+            <img className="rounded" src={img2} alt="" />
+            <img className="rounded" src={img3} alt="" />
           </div>
         </ShopCatImgContainer>
       </ShopCategoriesContainer>

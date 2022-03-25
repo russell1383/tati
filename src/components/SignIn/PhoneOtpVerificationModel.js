@@ -18,12 +18,29 @@ const style = {
   transform: 'translate(-50%, -50%)',
   width: 400,
   bgcolor: 'background.paper',
-//    bgcolor: 'info.main',
   border: '1px solid #000',
   boxShadow: 24,
   p: 4,
   
 };
+const inputStyles = {
+    width: ' 100%',
+    // width: '1rem !important',
+    height:' 2.2rem',
+    // height: 'inherit',
+    border: ' 2px solid',
+    borderRadius: ' 15%',
+    borderColor: ' #cdcdc,',
+    outline: ' none',
+    fontsize: ' 2rem',
+    textAlign: ' center',
+    color: ' #4a4a4a',
+    padding: '0 1px'
+    
+};
+const focusStyles = {
+     borderColor:'#20c4f4'  
+}
 
 const PhoneOtpVerificationModel = ({handleClose,open,handleBookingClose}) => {
     const {setUpRecaptcha,user } = useAuth();
@@ -78,7 +95,7 @@ const PhoneOtpVerificationModel = ({handleClose,open,handleBookingClose}) => {
     }
 
     return (
-     <div>
+    <>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -90,11 +107,11 @@ const PhoneOtpVerificationModel = ({handleClose,open,handleBookingClose}) => {
           timeout: 500,
         }}
       >
-        <Fade in={open}>
-    <Box sx={style}>
+    <Fade in={open}>
+     <Box sx={style}>
         <div className='p-4'>
                 {error && <Alert variant='danger'>{error}</Alert>}
-                        
+                {/* number input modal start */}
                 <div style={{ display: !show ? "block" : "none" }} className="mt-3">
                 <h4 className ='mb-4 text-center'>Number Verification</h4>
                     <Form onSubmit={getOtp}>
@@ -113,30 +130,17 @@ const PhoneOtpVerificationModel = ({handleClose,open,handleBookingClose}) => {
                              <Button variant='secondary' onClick={handleClose}>Cancel</Button> &nbsp;
                         </Link>
                        
-                        <Button variant='success' type='submit'>Send Code</Button>
+                            <Button variant='success' type='submit'>Send Code</Button>
 
                     </div>
                     </Form>
                 </div>
-            <div className='' style={{ display: show ? "block" : "none" }}>
-                <Form  onSubmit={verifyOtp}>
-                    {/* <Form.Group className="mb-3" controlId="formBasicOtp">
-                        {/* <Form.Control
-                             type="otp"
-                             placeholder="Enter Otp"
-                             onChange={(e) => { setOtp(e.target.value) }}
-                            >
-                        </Form.Control>   */}
-                                        
-                                        {/* react otp  */}
-
-                                    {/* <OtpInput
-                                    //    value={otp}
-                                        onChange={(e) => { setOtp(e.target.value) }}
-                                        numInputs={6}
-                                        separator={<span>-</span>}
-                                    /> */}
-                                {/* </Form.Group> */} 
+                {/* number input modal end*/}
+                            
+               {/* number otp verification start */}
+                            
+                <div className='' style={{ display: show ? "block" : "none" }}>
+                <Form sx={{mt:3}}  onSubmit={verifyOtp}>
                                 <div className=''>
                                     <h5 className ='mb-2 text-center'>Enter Verification Code</h5>
                                     <p className='mb-2 text-center'> SEND OTP : <span className='d-flux justify-content-center align-items-center'>****</span>{number.slice(10)}</p>
@@ -146,23 +150,25 @@ const PhoneOtpVerificationModel = ({handleClose,open,handleBookingClose}) => {
                                         className="mt-2 otpButton"
                                         // onChange={(e) => { setOtp(e.target.value) }}
                                         onChange={setOtp}
-                                        numInputs={6}
-                                        // separator={<span></span>}
-                                       
-                                    />
+                                            numInputs={6}
+                                            inputStyle={inputStyles}
+                                            focusStyle={focusStyles}
+                                            shouldAutoFocus
+                                     />
                                 </div>
                     <div className='button-right my-3'>
                         <Button variant='primary' type='submit'>Verify Code</Button>
-                                </div>
-                    </Form>
+                    </div>
+                </Form>
                 </div>  
-        </div>
+                {/* number otp verification end */}
+      </div>
                         
-        </Box>
-        </Fade>
-        </Modal>
+    </Box>
+    </Fade>
+    </Modal>
             
-    </div>
+</>
     );
 };
 

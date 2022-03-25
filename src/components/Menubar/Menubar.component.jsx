@@ -62,7 +62,7 @@ const Menubar = ({ mobileMenubarState }) => {
           <MenubarSocilMediaIcons>
             <FontAwesomeIcon icon={faFacebook} />
             <FontAwesomeIcon icon={faInstagram} />
-            <FontAwesomeIcon icon={faPinterest} />
+           <FontAwesomeIcon icon={faPinterest} />
           </MenubarSocilMediaIcons>
         </MenubarContainer>
       </MenubarWrapper>

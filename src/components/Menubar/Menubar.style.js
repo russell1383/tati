@@ -4,9 +4,10 @@ export const MenubarWrapper = styled.div`
   width: 100vw;
   height: 100vh;
   position: fixed;
+  // margin-top:20px;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 100;
-  top: 0;
+  // top: 15px;
   visibility: ${({ mobileMenubar }) => (mobileMenubar ? "visiabel" : "hidden")};
   transition: visibility 0.3s ease-out;
 `;
@@ -54,6 +55,7 @@ export const MenuItemsContainer = styled.div`
     font-size: 15px;
     padding-bottom: 20px;
     margin-bottom: 20px;
+    margin-top:20px;
     color: ${({ theme }) => theme.colors.secondary};
   }
 `;
@@ -65,8 +67,8 @@ export const MenubarSocilMediaIcons = styled.div`
   background: ${({ theme }) => theme.colors.primary};
   z-index: 2;
   width: 100%;
-  // margin-top:7px;
-  // margin-right:10px;
+  margin-top:12px;
+  margin-right:10px;
   height: 50px;
   border-top: 1px solid rgba(255, 255, 255, 0.25);
   display: flex;
@@ -83,6 +85,7 @@ export const SubMenuWrapper = styled.div`
   overflow: hidden;
   transition: all 0.3s ease-in-out;
   padding-left: 15px;
+  // margin-top:20px;
 `;
 
 // ------------------SubmenuBar------------------//
@@ -96,4 +99,5 @@ export const ChildMenuWrapper = styled.div`
   overflow: hidden;
   transition: all 0.3s ease-in-out;
   padding-left: 15px;
+  // margin-top:20px;
 `;

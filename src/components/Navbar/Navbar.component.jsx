@@ -24,7 +24,6 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Menubar from "../Menubar/Menubar.component";
 import useWindowDimensions from "../../utils/windowDimentions";
-// import { UserContext } from "../../App";
 import useAuth from "../../hooks/useAuth";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -35,10 +34,6 @@ import Tooltip from '@mui/material/Tooltip';
 import Zoom from '@mui/material/Zoom';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';
-
-// const Navbar = () => {
-//   // const { user, products } = useContext(UserContext);
-//   const { user, products} = useAuth()
 
 const Navbar = () => {
   // const { user, products } = useContext(UserContext);
@@ -95,23 +90,6 @@ const Navbar = () => {
             />
 
             <NavbarIconsContainer>
-              {/* <img
-                src={searchIcon}
-                alt=""
-                onClick={() => setSearchBarOpen(true)}
-              />
-
-              <img
-                src={shoppingIcon}
-                alt=""
-                onClick={() => setCartSidebarState(true)}
-              />
-
-              <img
-                src={personIcon}
-                onClick={() => history.push("/account")}
-                alt=""
-              /> */}
               <Tooltip title="Search" placement="top" arrow>
               <SearchOutlinedIcon
                 sx={{ fontSize: 32 }}

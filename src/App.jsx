@@ -32,6 +32,7 @@ import AuthProvider from "./components/Context/AuthProvider/AuthProvider";
 import LoginDashBoard from "./components/Navbar/LoginDashBoard";
 import SignInComponentsModel from "./components/SignIn/SignInComponentsModel";
 import LoginModal from "./components/SignIn/LoginModal";
+import OrderPlace from "./components/OrderPlace/OrderPlace";
 
 // export const UserContext = createContext();
 
@@ -85,6 +86,9 @@ function App() {
                 <Route exact path="/phoneOtp" component={PhoneOtpVerification} />
                 <Route path="/loginDashBoard">
                   <LoginDashBoard></LoginDashBoard>
+                </Route>
+                <Route exact path="/orderPlace">
+                <OrderPlace></OrderPlace>
                 </Route>
                 <PrivateRoute exact path="/account">
                   <Account />

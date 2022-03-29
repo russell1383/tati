@@ -36,15 +36,14 @@ export const CartSidebarContainer = styled.div`
 `;
 
 export const CartSidebarTopSection = styled.div`
-  height: 70vh;
+  height: 62vh;
   overflow: hidden;
-
   h1 {
     display: flex;
     justify-content: space-between;
-    font-size: 19px;
+    font-size: 15px;
     color: ${({ theme }) => theme.colors.primary};
-    padding: 6% 6%;
+    padding: 2% 4%;
     cursor: pointer;
   }
 
@@ -67,10 +66,11 @@ export const CartSidebarTopSection = styled.div`
 `;
 
 export const CartProductWrap = styled.div`
-  margin-top: 20px;
+  margin-top: 10px;
   overflow-y: scroll;
-  height: 52vh;
-  padding: 0 6%;
+  height: 50vh;
+  padding: 0 5%;
+  margin-bottom:0px;
 
   ::-webkit-scrollbar {
     display: none;
@@ -82,19 +82,21 @@ export const CartProductWrap = styled.div`
 `;
 
 export const CartSidebarBottomSection = styled.div`
-  height: 30vh;
+  height: 20vh;
   width: 100%;
   background: transparent;
-  padding: 6% 6%;
+  padding: 4% 5%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-top: 1px solid lightgray;
+  border-top: 2px solid lightgray;
 
   p {
     color: ${({ theme }) => theme.colors.primary};
+    margin-top:2px;
+    margin-bottom:3px;
     @media (max-width: 560px) {
-      font-size: 12px;
+      font-size: 10px;
     }
   }
 

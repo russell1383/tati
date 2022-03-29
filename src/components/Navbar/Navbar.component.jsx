@@ -48,6 +48,7 @@ const Navbar = () => {
   const [mobileMenubar, setMobileMenubar] = useState(false);
   const { height, width } = useWindowDimensions();
   const theme = useTheme();
+  
 
   // login part 
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -108,7 +109,7 @@ const Navbar = () => {
                 ) : null}
               </span>
               <span>
-              {loggedInUser?.email ?
+              {loggedInUser?.email?
 
                   <Button onClick={handleClick} variant="outline-secondary">{loggedInUser.displayName.slice(0,6)}</Button>
                 :
@@ -123,7 +124,7 @@ const Navbar = () => {
 
                   </Tooltip>
             }
-            </span>
+              </span>
             </NavbarIconsContainer>
 
             <NavItemsContainer>

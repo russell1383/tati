@@ -159,22 +159,22 @@ const ShippingInfoForm = () => {
             <option value="Cash on delivery">Cash on delivery</option>
             <option value="Payment">Payment</option>
           </select>
-          <CheckoutPageButton type="submit">
+          {/* <CheckoutPageButton type="submit">
             <span onClick={() => history.push("/")}> Continue to Shipping</span>
           </CheckoutPageButton>{" "}
           <CheckoutPageButton type="submit">
              <span onClick={() => history.push("/cart")}>Return to cart</span>
-          </CheckoutPageButton>
-          {/* <div>
+          </CheckoutPageButton> */}
+          <div>
               <Button variant="secondary">
-                <span onClick={() => history.push("/")}> Continue to shipping</span>
+                <span onClick={() => history.push("/orderPlace")}> Continue to shipping</span>
               </Button>{" "}
    
              <Button className="ms-2" variant="primary">
                 <span onClick={() => history.push("/cart")}>Return to cart</span>
              </Button>
 
-          </div> */}
+          </div>
         
             
     

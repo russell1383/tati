@@ -8,6 +8,7 @@ import 'react-phone-number-input/style.css';
 import PhoneInput from 'react-phone-number-input';
 import "./PhoneOtpVerification.css";
 import { Link, useHistory, useLocation } from 'react-router-dom';
+import { GET_USER_INFO_CALL, SIGNIN_CALL } from "../../requests/services";
 import useAuth from '../../hooks/useAuth';
 import { async } from '@firebase/util';
 import OtpInput from 'react-otp-input';
@@ -48,27 +49,33 @@ const PhoneOtpVerificationModel = ({handleClose,open,handleBookingClose}) => {
     const [error, setError] = useState("");
     const [otp, setOtp] = useState("");
     const [show, setShow] = useState(false);
+    // const [final, setFinal] = useState('');
     // const [confirmObj, setConfirmObj] = useState("");
-    const [loggedInUser, setLoggedInUser] = user;
+    const [loggedInUser, setLoggedInUser] = useState('');
     const history = useHistory();
     const location = useLocation();
     const url = location.state?.from || "/";
     
     const getOtp = async (e) => {
+        //   SIGNIN_CALL(data)
         // console.log(data);
         e.preventDefault();
         setError("");
-        if (number === "" || number === undefined)
-            return setError("please Enter a valid Phone number");
+        if (number === "" || number.length < 10) 
+            return setError("Please Enter a valid Phone number");
         try {
             const response = await setUpRecaptcha(number);
             console.log(response);
+            // localStorage["token"] = JSON.stringify(response.data.access_token);
+            // GET_USER_INFO_CALL(response.data.access_token);
             setLoggedInUser(response);
+            alert('ARE YOU SURE TO OTP SEND ')
             // setLoggedInUser(number);
             setShow(true);
             
         } catch (err) {
-            setError(err.message);
+            // setError(err.message);
+           setError (<Alert severity="error">{err.message}</Alert>)
         }
          console.log(number);
     }
@@ -81,16 +88,17 @@ const PhoneOtpVerificationModel = ({handleClose,open,handleBookingClose}) => {
             return;
         try {
             setError("");
-            await loggedInUser.confirm(otp).then((result) => {
-                const user = result.user;
-                console.log(user)
-                setLoggedInUser(user);
+            await  loggedInUser.confirm(otp).then((result) => {
+                // const user = result.user;
+                // console.log(user)
+                setLoggedInUser( result.user);
                 history.push(url);
                 handleClose();
                 handleBookingClose();
             })
         }catch (err) {
-             setError(err.message);
+             setError (<Alert severity="error">{err.message}</Alert>)
+            
         }
     }
 

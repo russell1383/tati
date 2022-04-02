@@ -12,7 +12,7 @@ const Home = () => {
       <FeaturedCollection />
       <ProductCategory />
       <hr />
-      <FeaturedCollection />
+      {/* <FeaturedCollection /> */}
     </>
   );
 };

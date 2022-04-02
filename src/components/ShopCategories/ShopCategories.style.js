@@ -46,11 +46,20 @@ export const ShopCategoriesContent = styled.div`
       font-family: "Vidaloka", serif;
       font-weight: bold;
       cursor: pointer;
+      // text-decoration:underline;
     }
     p {
       color: ${({ theme }) => theme.colors.primary};
       margin-bottom: 5px;
       cursor: pointer;
+      
+    }
+    p:hover{
+      text-decoration:underline solid navy auto;
+      transition: width 0.3s
+      //  text-decoration-color: navy;
+      // color:blue;
+
     }
   }
 `;

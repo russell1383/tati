@@ -8,12 +8,14 @@ const ProductCategory = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    GET_PRODUCT_CATEGORIES_CALL().then((response) => {
+    GET_PRODUCT_CATEGORIES_CALL()
+      .then((response) => {
       setCategories(response.data);
+      // console.log(response);
     });
   }, []);
 
-  // console.log(categories);
+  console.log(categories);
 
   return (
     <>

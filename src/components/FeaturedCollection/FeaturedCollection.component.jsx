@@ -23,6 +23,7 @@ const FeaturedCollection = () => {
   useEffect(() => {
     GET_FEATURED_PRODUCTS(featuredCollections).then((res) =>
       setProducts(res.data)
+
     );
 
     return () => {

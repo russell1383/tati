@@ -30,7 +30,7 @@ const CartContent = () => {
 
           <ProductCartContainer>
             <div className="product__table__title">
-              <p>Pruduct</p>
+              <p>Product</p>
               <p>Quantity</p>
               <p>Total</p>
             </div>

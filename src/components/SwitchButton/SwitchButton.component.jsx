@@ -37,7 +37,7 @@ const SwitchButton = ({ themeState }) => {
                 justifyContent: "center",
                 alignItems: "center",
                 height: "100%",
-                fontSize: 15,
+                fontSize: 17,
                 color: "#FFFF",
                 paddingRight: 2,
               }}
@@ -52,7 +52,7 @@ const SwitchButton = ({ themeState }) => {
                 justifyContent: "center",
                 alignItems: "center",
                 height: "100%",
-                fontSize: 15,
+                fontSize: 17,
                 color: "#F0671F",
                 paddingRight: 2,
               }}

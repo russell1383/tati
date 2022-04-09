@@ -11,7 +11,7 @@ const Home = () => {
       <CustomerReview />
       <FeaturedCollection />
       <ProductCategory />
-      <hr />
+      {/* <hr /> */}
       {/* <FeaturedCollection /> */}
     </>
   );

@@ -3,8 +3,10 @@ import { ProductCardSecondaryContainer } from "./ProductCardSecondary.style";
 import SecondaryButton from "../Buttons/SecondaryButton.component";
 import { IMG_BASE_URL } from "../../requests/api";
 import { useHistory } from "react-router";
+import saree from '../../assets/images/product-categories-image/saree.jpg'
 const ProductCardSecondary = ({ categoryInfo }) => {
   const { name, id, photo } = categoryInfo;
+  console.log(categoryInfo);
   const history = useHistory();
 
   const goToProductPage = (categoryName, categoryType, id) => {
@@ -13,8 +15,9 @@ const ProductCardSecondary = ({ categoryInfo }) => {
 
   return (
     <>
-      <ProductCardSecondaryContainer>
-        <img src={photo && `${IMG_BASE_URL}/categories/${photo}`} alt="" />
+      <ProductCardSecondaryContainer className="mb-4 rounded">
+      {/* <img src={photo && `${IMG_BASE_URL}/categories/${photo}`} alt="hello" /> */}
+        <img src={saree}alt="hello" />
         <div className="img__overlay">
           <div className="overlay__content">
             <p>{name}</p>
@@ -22,7 +25,7 @@ const ProductCardSecondary = ({ categoryInfo }) => {
               <SecondaryButton>Shop Now</SecondaryButton>
             </span>
           </div>
-        </div>
+        </div> 
       </ProductCardSecondaryContainer>
     </>
   );

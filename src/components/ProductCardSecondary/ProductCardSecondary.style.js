@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const ProductCardSecondaryContainer = styled.div`
-  /* width: 500px;
-  height: 500px; */
-  max-height: 500px;
+  //  width: 500px;
+   height: 400px; 
+  // max-height: 500px;
   position: relative;
   overflow: hidden;
   img {

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ProductCategoryContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 2rem;
   height: auto;
   @media (max-width: 1140px) {

@@ -44,7 +44,7 @@ const ShippingInfoForm = () => {
   }, []);
 
   const onSubmit = (data, e) => {
-    // let token = JSON.parse(localStorage.getItem("token"));
+    let token = JSON.parse(localStorage.getItem("token"));
     if (orderedProducts.length) {
       let orderData = {
         // user_id: loggedInUser.id,
@@ -73,14 +73,16 @@ const ShippingInfoForm = () => {
         order_note: "lorem ipsum",
       };
 
-      // USER_ORDER(orderData, token)
-      USER_ORDER(orderData)
+      USER_ORDER(orderData, token)
+      // USER_ORDER(orderData)
         .then((response) => {
           console.log(response);
           if (response.data.status === "success") {
             orderData.invoice = response.data.invoice;
             setUserOrder(orderData);
+            alert('order place success')
             history.push("/order-placed");
+            
           }
         })
         .catch((error) => console.log(error));
@@ -109,7 +111,7 @@ const ShippingInfoForm = () => {
 
         <br />
         {/* <ShippingAddress onSubmit={handleSubmit(onSubmit)}> */}
-        <form onSubmit={onSubmit}>
+        <form  onSubmit={handleSubmit(onSubmit)}>
           <h1 className="text-center fs-5">Shipping Address</h1>
           <br />
           <input
@@ -124,11 +126,10 @@ const ShippingInfoForm = () => {
             <input
               type="tel"
               placeholder="Phone"
-              // defaultValue={loggedInUser.phone}
               // {...register("shipping_phone")}
               required
               defaultValue={loggedInUser.phone}
-              // {...register("shipping_phone")}
+              {...register("shipping_phone")}
             />
             <input
               type="email"
@@ -141,21 +142,21 @@ const ShippingInfoForm = () => {
           <input
             type="text"
             placeholder="Address"
-            // {...register("shipping_address")}
+            {...register("shipping_address")}
             required
           />
           <InputWrap>
             <input
               type="text"
               placeholder="City"
-              // {...register("shipping_city")}
+              {...register("shipping_city")}
               required
             />
 
             <input
               type="text"
               placeholder="Postal code"
-              // {...register("shipping_zip")}
+              {...register("shipping_zip")}
               required
             />
           </InputWrap>
@@ -164,23 +165,13 @@ const ShippingInfoForm = () => {
             <option value="Cash on delivery">Cash on delivery</option>
             <option value="Payment">Payment</option>
           </select>
-          <CheckoutPageButton type="submit">
-            {/* <span onClick={() => history.push("/")}> Continue to Shipping</span> */}
-            <span >Place Your Order</span>
+          <CheckoutPageButton type="submit" className="mt-3">
+            <span onClick={() => history.push("/")}> Continue to Shipping</span>
+            {/* <span >Place Your Order</span> */}
           </CheckoutPageButton>{" "}
           <CheckoutPageButton type="submit">
              <span onClick={() => history.push("/cart")}>Return to cart</span>
           </CheckoutPageButton>
-          {/* <div>
-              <Button variant="secondary">
-                <span onClick={() => history.push("/orderPlace")}> Continue to shipping</span>
-              </Button>{" "}
-   
-             <Button className="ms-2" variant="primary">
-                <span onClick={() => history.push("/cart")}>Return to cart</span>
-             </Button>
-
-          </div> */}
         </form>
         <br />
         <hr />

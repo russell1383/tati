@@ -111,8 +111,8 @@ const SignUpContent = () => {
           </SignInFormContainer>
         ) : (
             
-          // <SignUpOtp userNum={userNum} />
-            <h1>Hello</h1>
+          <SignUpOtp userNum={userNum} />
+            // <h1>Hello</h1>
         )}
         </div>
       </SignInContainer>
